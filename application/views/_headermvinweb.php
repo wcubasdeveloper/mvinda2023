@@ -550,6 +550,24 @@
     </div>
     <!-- OffCanvas Search End -->
 
+
+<div class="modal" id="miModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     
+      <div class="modal-body">
+      
+      
+      
+      
+        <img src="http://www.mvinda.com/assets/imagenes/pop_up.jpg" style="width:100%" />
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
 <style>
 
 .whatsappfixed {
@@ -581,6 +599,11 @@
     var URL_BASE = '<?=base_url()?>';
 
     $(document).ready(function () {
+    
+       var miModal = new bootstrap.Modal(document.getElementById('miModal'));
+    miModal.show();
+    
+    
         getCategorias();
         activarBusqueda();
         activarbusquedamovil();
@@ -631,7 +654,7 @@
                                                     '<a class="suggest-item" style="display: flex;">' +
                                                         '<img width="64" class="media-object" src="'+
                                                             (this.NomProductoUM == null || this.NomProductoUM == ''  ?  URL_BASE + 'assets/abelostyle/assets/images/product-image/4.jpg' : 
-                                                            'https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/' + this.NomProductoUM  ) +
+                                                            'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/' + this.NomProductoUM  ) +
                                                          '" alt="...">'+
                                                         '<div class="name" style="padding-top: 8px;padding-left: 8px;" >' +
                                                             this.NomProducto +
@@ -661,7 +684,7 @@
                 //                                     '<a class="suggest-item" style="display: flex;">' +
                 //                                         '<img width="64" class="media-object" src="'+
                 //                                             (this.NomProductoUM == null || this.NomProductoUM == ''  ?  URL_BASE + 'assets/abelostyle/assets/images/product-image/4.jpg' : 
-                //                                             'https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/' + this.NomProductoUM  ) +
+                //                                             'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/' + this.NomProductoUM  ) +
                 //                                          '" alt="...">'+
                 //                                         '<div class="name" style="padding-top: 8px;padding-left: 8px;" >' +
                 //                                             this.NomProducto +
@@ -715,7 +738,7 @@
                                                     '<a class="suggest-item" style="display: flex;">' +
                                                         '<img width="64" class="media-object" src="'+
                                                             (this.NomProductoUM == null || this.NomProductoUM == ''  ?  URL_BASE + 'assets/abelostyle/assets/images/product-image/4.jpg' : 
-                                                            'https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/' + this.NomProductoUM  ) +
+                                                            'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/' + this.NomProductoUM  ) +
                                                          '" alt="...">'+
                                                         '<div class="name" style="padding-top: 8px;padding-left: 8px;" >' +
                                                             this.NomProducto +

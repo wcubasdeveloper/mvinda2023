@@ -99,12 +99,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="banner-wrapper">
-                            <a href="#shop-4-column.html"><img src="<?=base_url()?>assets/abelostyle/assets/images/banner-image/11.jpg" alt="" /></a>
+                            <a href="#shop-4-column.html"><img src="<?=base_url()?>assets/imagenes/1.png" alt="" /></a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="banner-wrapper">
-                            <a href="#shop-4-column.html"><img src="<?=base_url()?>assets/abelostyle/assets/images/banner-image/12.jpg" alt="" /></a>
+                            <a href="#shop-4-column.html"><img src="<?=base_url()?>assets/imagenes/2.png" alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
         </div>
         <!-- Hot Deal Area End -->
         <!-- Best sell Area Start --> 
-        <div class="best-sell-area mt-50px">
+        <div class="best-sell-area mt-50px" hidden >
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -142,7 +142,7 @@
                     <div class="single-slider-item">
                         <article class="list-product text-center">
                             <div class="product-inner">
-                                <div class="img-block">
+                                <div class="img-block" style="border-top: 7px solid red;border-bottom: 7px solid black;" >
                                     <a href="#single-product.html" class="thumbnail">
                                         <img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/6.jpg" alt="" />
                                         <img class="second-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/7.jpg" alt="" />
@@ -609,16 +609,16 @@
                     caracteristicas = rpta[i]["Caracteristicas"]; 
                     precio_venta_soles = (codmonedauno == 1 ? precioventauno : (precioventauno * COSTO_DOLAR_HOY) );
                     precio_venta_dolares = (codmonedauno == 2 ? precioventauno : (precioventauno/COSTO_DOLAR_HOY) );
-                    urlimagen = ( urlimagenuno.length == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/8.jpg' : 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/'+ urlimagenuno )
+                    urlimagen = ( urlimagenuno.length == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/8.jpg' : 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'+ urlimagenuno )
 
                     //
 
                     strHTML += '<div class="slider-single-item">' +
                                 '<article class="list-product text-center">' +
                                     '<div class="product-inner">' +
-                                        '<div class="img-block">' +
+                                        '<div class="img-block" style="border-top: 7px solid red;border-bottom: 7px solid black;">' +
                                             '<a href="Web/DetalleProducto/?codigoProducto=' + codigoProducto +'"  target="_blank" class="thumbnail">' +
-                                                 ( urlimagenuno.length == 0 ? '<img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/4.jpg" alt="" />' : '<img class="first-img" src="https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/'+ urlimagenuno +'" alt="" />' ) +
+                                                 ( urlimagenuno.length == 0 ? '<img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/4.jpg" alt="" />' : '<img class="first-img" src="https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'+ urlimagenuno +'" alt="" />' ) +
                                             '</a>' +
                                             '<div class="add-to-link">' +
                                                 '<ul>' +
@@ -780,7 +780,7 @@
                 var codmoneda = this.CodMoneda;
                 var precioventa = this.PrecioVenta;
                 var marca =  this.Marca;
-                var urlimagenProducto = ( this.UrlImagen == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/6.jpg' : 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/'+ this.UrlImagen )
+                var urlimagenProducto = ( this.UrlImagen == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/6.jpg' : 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'+ this.UrlImagen )
                 var precioventasoles= (codmoneda == 1 ? precioventa : (precioventa * COSTO_DOLAR_HOY) );
                 var precioventadolares = (codmoneda == 2 ? precioventa : (precioventa/COSTO_DOLAR_HOY) );
                 var caracteristicas = this.Caracteristicas;
@@ -792,7 +792,7 @@
                     '<div class="single-slider-item">' +
                         '<article class="list-product text-center">' +
                             '<div class="product-inner">' +
-                                '<div class="img-block">' +
+                                '<div class="img-block" style="border-top: 7px solid red;border-bottom: 7px solid black;" >' +
                                     // '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="thumbnail">' +
                                         '<img class="first-img" src="'+urlimagenProducto+'" alt="" />' +
                                     // '</a>' +
@@ -939,7 +939,7 @@
                 var codmoneda = this.CodMoneda;
                 var precioventa = this.PrecioVenta;
                 var marca =  this.Marca;
-                var urlimagenProducto = ( this.UrlImagen == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/6.jpg' : 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/'+ this.UrlImagen )
+                var urlimagenProducto = ( this.UrlImagen == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/6.jpg' : 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'+ this.UrlImagen )
                 var precioventasoles= (codmoneda == 1 ? precioventa : (precioventa * COSTO_DOLAR_HOY) );
                 var precioventadolares = (codmoneda == 2 ? precioventa : (precioventa/COSTO_DOLAR_HOY) );
                 var caracteristicas = this.Caracteristicas;
@@ -957,7 +957,7 @@
                     '<div class="slider-single-item">' +
                         '<article class="list-product text-center">' +
                             '<div class="product-inner">' +
-                                '<div class="img-block">' +
+                                '<div class="img-block" style="border-top: 7px solid red;border-bottom: 7px solid black;" >' +
                                     // '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="thumbnail">' +
                                         '<img class="first-img" src="'+ urlimagenProducto +'" alt="" />' +
                                     // '</a>' +
@@ -1073,7 +1073,7 @@
             });
 
             $(".se-pre-con").fadeOut("slow");
-            getProductosMasVendidos();
+            //getProductosMasVendidos();
         },'JSON');
     }
 
@@ -1140,16 +1140,16 @@
                         var precio_venta_soles = (codmonedauno == 1 ? precioventauno : (precioventauno * COSTO_DOLAR_HOY) );
                         var precio_venta_dolares = (codmonedauno == 2 ? precioventauno : (precioventauno/COSTO_DOLAR_HOY) );
                         var caracteristicas = this.Caracteristicas;
-                        var urlimagen = ( urlimagenuno.length == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/8.jpg' : 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/'+ urlimagenuno );
+                        var urlimagen = ( urlimagenuno.length == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/8.jpg' : 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'+ urlimagenuno );
                         var marcauno = (this.Marca ? this.Marca : '-') ;
 
 
                         strHTMLproductos += '<div class="slider-single-item">' +
                                 '<article class="list-product text-center">' +
                                     '<div class="product-inner">' +
-                                        '<div class="img-block">' +
+                                        '<div class="img-block" style="border-top: 7px solid red;border-bottom: 7px solid black;" >' +
                                             '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" target="_blank" class="thumbnail">' +
-                                                 ( urlimagenuno.length == 0 ? '<img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/4.jpg" alt="" />' : '<img class="first-img" src="https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/'+ urlimagenuno +'" alt="" />' ) +
+                                                 ( urlimagenuno.length == 0 ? '<img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/4.jpg" alt="" />' : '<img class="first-img" src="https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'+ urlimagenuno +'" alt="" />' ) +
                                             '</a>' +
                                             '<div class="add-to-link">' +
                                                 '<ul>' +

@@ -40,7 +40,7 @@
 </style>
 
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8tGjlECbGQm-EsVM95TBnCl07KYl7eLo&callback=inicializarmapa">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8tGjlECbGQm-EsVM95TBnCl07KYl7eLo">
 </script>
 
 <div class="checkout-area mt-50px mb-40px">
@@ -256,7 +256,7 @@
     var mapa = null;
     // $('#modalDetalleProducto').modal('show');
     $(document).ready(function () {
-        //inicializarmapa();
+        inicializarmapa();
         getDatosCarritoCompra();
         // $('.offcanvas-toggle').attr('href','#');
         $('#sectioncarrritocomprasico').css('display','none');
@@ -341,10 +341,17 @@
         var strHTMLtabla = '';
         //
         $.each(productosCarrito, function(){
+            var ventaSolesPrecio = Number(this.ventasoles);
+            var ventaDolaresPrecio = Number(this.ventadolares);
+            ventaSolesPrecio  = ventaSolesPrecio.toFixed(2);
+            ventaDolaresPrecio = ventaDolaresPrecio .toFixed(2);
+
+            console.log(ventaSolesPrecio );
+            
             strHTMLtabla += '<tr>' + 
                                 '<td class="first-column" style="padding-top: 0; padding-bottom: 0;" >' + '<img style="width:104px" src="'+ this.nombreurlimg +'" />' +'</td>' +
                                 '<td class="pro-price">'+ this.nomProducto +' x '+ this.cantidad +'</td>' +
-                                '<td class="pro-price">'+ 'S./ ' + this.ventasoles.toFixed(2) + ' ( $' + this.ventadolares.toFixed(2) +')' +'</td>' +
+                                '<td class="pro-price">'+ 'S./ ' + ventaSolesPrecio   + ' ( $' + ventaDolaresPrecio  +')' +'</td>' +
                             '</tr>';
 
         });
@@ -454,18 +461,32 @@
             var datacarritocompra = JSON.parse(getLocalDataCarrito());
             //
             $.each(datacarritocompra, function(){
-                strDetalleSerializado += this.idproducto + '|' + this.cantidad  + '|' +  this.ventadolares.toFixed(2) + '|' + this.ventasoles.toFixed(2) + '|' + this.nomProducto +'|' + this.marca + '|' +  'descripción del producto' + '~';
+            
+            
+            var ventaSolesPrecio = Number(this.ventasoles);
+            var ventaDolaresPrecio = Number(this.ventadolares);
+            ventaSolesPrecio  = ventaSolesPrecio.toFixed(2);
+            ventaDolaresPrecio = ventaDolaresPrecio .toFixed(2);
+            
+            
+            
+                strDetalleSerializado += this.idproducto + '|' + this.cantidad  + '|' +  ventaDolaresPrecio  + '|' + ventaSolesPrecio   + '|' + this.nomProducto +'|' + this.marca + '|' +  'descripción del producto' + '~';
                 cantidadProductos +=  this.cantidad ;
-                costototalsoles += this.ventadolares;
-                costototaldolares += this.ventasoles;
+                costototalsoles += this.ventasoles;
+                costototaldolares += this.ventadolares;
             });
             //
             strDetalleSerializado = strDetalleSerializado.substr(0, strDetalleSerializado.length -1);
             //
+            var totalSoles = Number(costototalsoles);
+            var totalDolares = Number(costototaldolares);
+            totalSoles  = totalSoles.toFixed(2)
+            totalDolares  = totalDolares.toFixed(2);
+            //
             var dataPedido = {
                 datoscliente : nombres + '|' + apellidos + '|' + correo + '|' + celular,
                 datosdireccion : direccion + '|' + persona_recepciona + '|' + lugar_referencia + '|' +  latitudPedido + '|' + longitudPedido + '|' + telefono_contacto,
-                datospedido : cantidadProductos + '|' +  costototaldolares.toFixed(2) + '|' + costototalsoles.toFixed(2) + '|' + tipocambio.toFixed(2),
+                datospedido : cantidadProductos + '|' +  totalDolares   + '|' + totalSoles  + '|' + tipocambio.toFixed(2),
                 datosPedidoDetalle : strDetalleSerializado,
                 nomcli : nombres + ' ' + apellidos,
                 correocli : correo,

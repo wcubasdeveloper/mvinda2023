@@ -54,16 +54,21 @@
 
     <script>
         $(document).ready(function () {
+                    $(".se-pre-con").fadeOut("slow");
+
             getDatosCarritoCompra();
             // $('.offcanvas-toggle').attr('href','');
             $('#sectioncarrritocomprasico').css('display','none');
         });
 
         function getDatosCarritoCompra(){
+      
             var productosCarrito = JSON.parse(getLocalDataCarrito()); //  JSON.parse(getLocalDataCarrito());
             var cantidadProducto = 0;
             var totalpagosoles = 0;
             var totalpagodolares = 0;
+            //
+            console.log(productosCarrito);
             //
             $('#tbProductosCarrito tbody').empty();
             $('#lbltextocantidadprod').text('-');
@@ -84,10 +89,13 @@
             }
             
             //seteando data al carrito
+         
 
             var htmlTabla = '';
             var totalpagosoles = 0;
             var totalpagodolares = 0;
+            
+               
             if(productosCarrito.length == 0){
                 htmlTabla += '<tr><td colspan="4" style="text-align:center">No hay productos en el carrito</td></tr>';
                 $(".se-pre-con").fadeOut("slow");
@@ -97,19 +105,25 @@
             }
             $('.sectionconfirmacionenvio').css('display','block');
 
+              
             $.each(productosCarrito, function(){
                 
-                var cantidad = this.cantidad;
-                var punitdolares = this.ventadolares;
-                var punitsoles = this.ventasoles;
+                var cantidad = Number(this.cantidad);
+                var punitdolares = Number(this.ventadolares);
+                var punitsoles = Number(this.ventasoles);
                
                 var subtotalsoles = punitsoles * cantidad;
                 var subtotaldolares = punitdolares * cantidad;
                 totalpagodolares += subtotaldolares ;
                 totalpagosoles += subtotalsoles;
+                
+                 
+                punitsoles = punitsoles.toFixed(2);
+                punitdolares = punitdolares.toFixed(2);
+                
                 htmlTabla +=    '<tr>'+
                                     '<td class="product-thumbnail" >' + '<img class="img-responsive" src="'+ this.nombreurlimg +'" alt="" />' + '</td>' +
-                                    '<td class="product-name">'+ this.nomProducto +' <p style="padding-top: 10px; font-weight: bold;"> S/. '+ this.ventasoles.toFixed(2) +' (<span>$ '+ this.ventadolares.toFixed(2) +'</span>)</p></td>' +
+                                    '<td class="product-name">'+ this.nomProducto +' <p style="padding-top: 10px; font-weight: bold;"> S/. '+  punitsoles   +' (<span>$ '+ punitdolares  +'</span>)</p></td>' +
                                     '<td class="product-quantity" >' +
                                         '<div class="cart-plus-minus" codproducto="'+ this.idproducto +'" >' +
                                             '<div class="dec qtybutton" onclick="disminuyecantidad('+ this.idproducto+',$(this));" >-</div>' +
@@ -124,7 +138,7 @@
                 
             });
             //
-            console.log("--2---");
+           
 
             $('#tbProductosCarrito tbody').append(htmlTabla);
 

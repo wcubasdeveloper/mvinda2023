@@ -224,8 +224,8 @@ class Web extends CI_Controller {
         $urlimagen = base_url().'assets/abelostyle/assets/images/product-image/6.jpg';
         $urlimgfacebook = base_url().'assets/images/Logo.png';
       }else{
-        $urlimagen = 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/'.$urlproducto;
-        $urlimgfacebook = 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20602732402/'.$urlproducto;
+        $urlimagen = 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'.$urlproducto;
+        $urlimgfacebook = 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'.$urlproducto;
       }
 
       if(strlen($caracteristicas_producto) == 0 ){
@@ -405,7 +405,7 @@ class Web extends CI_Controller {
     //
     $codProducto = $_GET["codProducto"];
     $producto =  $this->getInfoProducto($codProducto);
-    $urlImagen = ( $producto["UrlImagen"] == null) ? "http://www.its-print.co.uk/global/images/PublicShop/ProductSearch/prodgr_default_300.png" : "http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/".$producto["UrlImagen"];
+    $urlImagen = ( $producto["UrlImagen"] == null) ? "http://www.its-print.co.uk/global/images/PublicShop/ProductSearch/prodgr_default_300.png" : "https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/".$producto["UrlImagen"];
     //$abrevMoneda = ( $producto["CodMoneda"] == 1 ? 'S/.'  : '$');
     $producto["UrlImagen"] = $urlImagen;
     $datos["datoProducto"] = $producto;
