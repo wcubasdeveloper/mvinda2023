@@ -551,21 +551,6 @@
     <!-- OffCanvas Search End -->
 
 
-<div class="modal" id="miModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-     
-      <div class="modal-body">
-      
-      
-      
-      
-        <img src="http://www.mvinda.com/assets/imagenes/pop_up.jpg" style="width:100%" />
-      </div>
-     
-    </div>
-  </div>
-</div>
 
 
 <style>
@@ -600,9 +585,7 @@
 
     $(document).ready(function () {
     
-       var miModal = new bootstrap.Modal(document.getElementById('miModal'));
-    miModal.show();
-    
+  
     
         getCategorias();
         activarBusqueda();

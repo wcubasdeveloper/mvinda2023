@@ -295,11 +295,43 @@
   </div>
 </div>
 
+
+
+<div class="modal" id="miModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        <p><button type="button" class="btn btn-primary" onclick="verProducto();" style="width:100%">Ver Producto</button>
+</p>
+        <img src="https://www.vindaxcom.com/assets/imagenes/pop_up.jpg" style="width:100%" />
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
 <script src="http://sonnyt.com/prettySocial/jquery.prettySocial.min.js"></script>
 
 <script>
     var URL_BASE = '<?=base_url()?>';
     $(document).ready(function () {
+    
+ // var cerradoUltimaVez = Number(localStorage.getItem('modalCerradoHora'));
+ // var horaActual = new Date().getTime();
+  
+   //console.log(cerradoUltimaVez,(horaActual - cerradoUltimaVez) > 10000)
+
+  //if (!cerradoUltimaVez || (horaActual - cerradoUltimaVez) > 3600000) { // 3600000ms = 1 hora
+    // Muestra el modal si no se ha cerrado antes o si han pasado más de 1 hora
+   // $('#miModal').modal('show');
+  //}
+  
+//$('#miModal').modal('show');
+    
         getCategoriasView();
         getProductosNuevos();
     });
@@ -313,6 +345,13 @@
         ventadolares : '',
         cantidad : 0
     };
+    
+    function verProducto(){
+        localStorage.setItem('modalCerradoHora', new Date().getTime());
+
+      window.location.href = 'http://www.vindaxcom.com/Web/DetalleProducto/?codigoProducto=1885';
+
+    }
     //
     function verDetalleProducto(elemento){
     

@@ -1,4 +1,4 @@
-     <!-- About Area Start -->
+<!-- About Area Start -->
     <section class="about-area mtb-50px">
         <div class="container">
             <div class="row">
@@ -25,12 +25,12 @@
 
                             <div class="form-group">
                                 <label for="txtemail"></label>
-                                <input type="text" class="form-control" id="txtemail"  placeholder="Email (opcional)">
+                                <input type="text" class="form-control" id="txtemail"  placeholder="Email">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" hidden>
                                 <label for="txtDNI"></label>
-                                <input type="text" class="form-control" id="txtDNI"  placeholder="Número de documento">
+                                <input type="text" class="form-control" id="txtDNI" value="99999999"  placeholder="Número de documento">
                             </div>
 
                             <div class="form-group">
@@ -88,13 +88,21 @@
             $('#txtcelular').focus();
             return false;
         }
-
+        
+         if(correo.length == 0){
+            $('#txtmensajealerta').text("Debe indicar el correo de contacto.");
+            $('#txtmensajealerta').removeClass('alert-success').addClass('alert-danger');
+            $('#txtemail').focus();
+            return false;
+        }
+        
+/*
         if(nroDocumento.length == 0){
             $('#txtmensajealerta').text("Debe registrar su número de documento.");
             $('#txtmensajealerta').removeClass('alert-success').addClass('alert-danger');
             $('#txtDNI').focus();
             return false;       
-        }
+        }*/
 
         if(mensaje.length == 0){
             $('#txtmensajealerta').text("Debe registrar el motivo.");

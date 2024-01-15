@@ -121,7 +121,7 @@
 
                         <div class="col-lg-12 col-md-12">
                             <p style="padding-bottom: 5px;" >Nota: Mueva el mapa hasta encontrar la ubicación de la entrega del pedido.</p>
-                            <div id="mapaLocalizacion" style="height:400px">
+                            <div id="mapaLocalizacion" style="height:400px" hidden >
 
                             </div>
                         </div>
@@ -256,7 +256,7 @@
     var mapa = null;
     // $('#modalDetalleProducto').modal('show');
     $(document).ready(function () {
-        inicializarmapa();
+        //inicializarmapa();
         getDatosCarritoCompra();
         // $('.offcanvas-toggle').attr('href','#');
         $('#sectioncarrritocomprasico').css('display','none');
@@ -382,8 +382,8 @@
         // $('#txttelcontdirecc').val('999999999');
     //////
 
-        var latitud = mapa.getCenter().lat();
-        var longitud =mapa.getCenter().lng();
+        var latitud = 0;//mapa.getCenter().lat();
+        var longitud = 0; //mapa.getCenter().lng();
         //
         var textoesrequerido = null;
         //
