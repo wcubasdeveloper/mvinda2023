@@ -151,6 +151,28 @@ class  XbestServicio extends CI_Controller {
     }
 
 
+    /*
+        
+    public function getCategorias(){
+    
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL,"https://xbestwebapi.abexacloud.com/api/GetCategorias");
+        curl_setopt($curl, CURLOPT_POST, 1);
+        curl_setopt($curl, CURLOPT_USERPWD, "ABEXA" . ":" . "4B3XA2021");
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array()));
+       // curl_setopt($curl, CURLOPT_POSTFIELDS, "rucEmpresa=".$ruc);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+
+        $respuesta = curl_exec($curl); //viene un array
+
+        //var_dump($respuesta);
+        //$respuesta = json_decode($respuesta, true); //convierte array normal
+        // var_dump($respuesta);
+        // return $respuesta;
+        echo $respuesta;
+    }
+    */
     
     public function getCategorias(){
     

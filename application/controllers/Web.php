@@ -224,8 +224,8 @@ class Web extends CI_Controller {
         $urlimagen = base_url().'assets/abelostyle/assets/images/product-image/6.jpg';
         $urlimgfacebook = base_url().'assets/images/Logo.png';
       }else{
-        $urlimagen = 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'.$urlproducto;
-        $urlimgfacebook = 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'.$urlproducto;
+        $urlimagen = $urlproducto;
+        $urlimgfacebook = $urlproducto;
       }
 
       if(strlen($caracteristicas_producto) == 0 ){

@@ -196,7 +196,7 @@
                 var codmoneda = this.CodMoneda;
                 var precioventa = this.PrecioVenta;
                 var marca =  this.Marca;
-                var urlimagenProducto = ( this.UrlImagen == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/7.jpg' : 'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/'+ this.UrlImagen )
+                var urlimagenProducto = ( this.UrlImagen == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/7.jpg' : this.UrlImagen )
                 var precioventasoles= (codmoneda == 1 ? precioventa : (precioventa * COSTO_DOLAR_HOY) );
                 var precioventadolares = (codmoneda == 2 ? precioventa : (precioventa/COSTO_DOLAR_HOY) );
                 var caracteristicas = this.Caracteristicas;

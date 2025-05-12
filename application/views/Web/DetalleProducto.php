@@ -172,7 +172,7 @@
     }
 
     function compartirProducto(e){
-        alert(2)
+       // alert(2)
         var url = "http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=122";
         // window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
         //     'facebook-share-dialog',
