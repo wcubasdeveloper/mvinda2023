@@ -1,6 +1,4 @@
-
-
-    <!-- Footer Area Start --> 
+<!-- Footer Area Start --> 
     <div class="footer-area">
         <div class="footer-container">
             <div class="footer-top">
@@ -9,7 +7,7 @@
                         <div class="col-md-12 col-lg-12 mb-md-30px mb-lm-30px" >
                             <div class="footer-logo">
                                 <!-- <a href="#index.html"> -->
-                                    <img class="img-responsive" src="<?=base_url()?>assets/images/logo_blanco.png" alt="logo.jpg" />
+                                    <img class="img-responsive" style="width:250px" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" />
                                 <!-- </a> -->
                             </div>
                         </div>
@@ -20,10 +18,10 @@
                                 <p class="text-infor"></p>
                                 <h4 class="footer-herading" style="color: #25d366;">CONTACTO</h4>
                                 <div class="need_help" style="color:white">
-                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-map-marker"></span>&nbsp;&nbsp; Av. Inca Garcilaso de la Vega 1261, Cercado de Lima 15001</p>
-                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-apartment"></span>&nbsp;&nbsp; Galeria Garcilazo de la Vega N° 1261 Tiendas (B131 - B132 - B141) </p>
-                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-envelope"></span>&nbsp;&nbsp; ventas@mvinda.com - info@mvinda.com</p>
-                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-envelope"></span>&nbsp;&nbsp; contacto@mvinda.com - garantia@mvinda.com</p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-map-marker"></span>&nbsp;&nbsp; Av. Inca Garcilaso de la Vega 1261, Cercado de Lima </p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-apartment"></span>&nbsp;&nbsp;Galería Garcilazo stand c208 </p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-envelope"></span>&nbsp;&nbsp; vindax.ventas@gmail.com</p>
+                                   
                                     <p style="color: white;" ><span style="color: white;" class="lnr lnr-phone-handset"></span>&nbsp;&nbsp; 955102830</p>
                                 </div>
                             </div>

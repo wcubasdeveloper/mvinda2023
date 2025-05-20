@@ -252,30 +252,11 @@
                 <!-- Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="#index.html"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a>
+                        <a href="/"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
 
-                <!-- Header Tools Start -->
-                <div class="col-auto">
-                    <div class="header-tools justify-content-end">
-                        <!-- <div class="cart-info d-flex align-self-center">
-                            <a href="##offcanvas-wishlist" class="heart offcanvas-toggle"><i class="lnr lnr-heart"></i><span>Wishlist</span></a>
-                            <a href="##offcanvas-cart" class="bag offcanvas-toggle"><i class="lnr lnr-cart"></i><span>My Cart</span></a>
-                        </div> -->
-                        <div class="mobile-menu-toggle">
-                            <a href="##offcanvas-mobile-menu" class="offcanvas-toggle">
-                                <svg viewBox="0 0 800 600">
-                                    <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
-                                    <path d="M300,320 L540,320" id="middle"></path>
-                                    <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Header Tools End -->
 
             </div>
         </div>
@@ -619,6 +600,8 @@
                     {
                         nombreproducto: parametros
                     }, function (respuesta) {
+                    
+                        console.log("respuesta",respuesta);
 
                         var jsonData = respuesta;
                         // var strCuerpo = '';
@@ -637,7 +620,7 @@
                                                     '<a class="suggest-item" style="display: flex;">' +
                                                         '<img width="64" class="media-object" src="'+
                                                             (this.NomProductoUM == null || this.NomProductoUM == ''  ?  URL_BASE + 'assets/abelostyle/assets/images/product-image/4.jpg' : 
-                                                            'https://xbest.abexacloud.com/Adjunto/imagenproducto/20610638601/' + this.NomProductoUM  ) +
+                                                             this.NomProductoUM  ) +
                                                          '" alt="...">'+
                                                         '<div class="name" style="padding-top: 8px;padding-left: 8px;" >' +
                                                             this.NomProducto +
@@ -964,7 +947,7 @@
             // console.log("url CATEGORIAS->>", URL_BASE);
             $.each(rpta,function(){
                 // strHTMLoption += '<option value="'+this.CodCategoriaProducto+'">'+ this.NomCategoriaProducto +'</option>';
-                strHTMLcategoriaMenu += '<li><a href="'+ URL_BASE +  'Web/ProductosByCategoria?c=' + this.CodCategoriaProducto +'">' +  '>'+ this.NomCategoriaProducto +'</a></li>';
+                strHTMLcategoriaMenu += '<li><a href="'+ URL_BASE +  'Web/ProductosByCategoria?c=' + this.CodCategoriaProducto + "|" + this.NomCategoriaProducto +'">' +  '>'+ this.NomCategoriaProducto +'</a></li>';
                 strHTMLcategoriaLink += '<li class="menu-item"><a href="'+ URL_BASE +'Web/ProductosByCategoria?c=' + this.CodCategoriaProducto + '|' + this.NomCategoriaProducto +'">'+ '<span class="lnr lnr-chevron-right-circle"></span> ' +this.NomCategoriaProducto +'</a></li>';
             });
             // strHTMLoption += '<option value="0" selected >Todo</option>';

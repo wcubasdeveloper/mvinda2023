@@ -211,17 +211,17 @@
                                                     '<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 p-10">' +
                                                         '<div class="left-img">' +
                                                             '<div class="img-block">' +
-                                                                '<a href="single-product.html" class="thumbnail">' +
+                                                                // '<a href="single-product.html" class="thumbnail">' +
                                                                     '<img class="first-img" src="'+urlimagenProducto+'"  />' +
-                                                                '</a>'+
+                                                                // '</a>'+
                                                             '</div>'+
                                                         '</div>'+
                                                     '</div>'+
                                                     '<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 p-10">'+
                                                         '<div class="product-desc-wrap">'+
                                                             '<div class="product-decs">'+
-                                                                '<h2><a   href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'"  class="product-link"  style="font-size: 0.7em; font-weight: bold;" >'+ this.NomProducto +'</a></h2>'+
-                                                                '<span class="inner-link" ><span style="font-size: 21px;" >'+ this.Marca +'</span></span>'+
+                                                                '<h2><a href="'+ URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="product-link">'+ this.NomProducto +'</a></h2>'+
+                                                                '<span class="inner-link" ><span style="font-size: 31px;" >'+ this.Marca +'</span></span>'+
                                                                 '<div class="product-intro-info">'+
                                                                     '<p>'+ (caracteristicas.length == 0 ? 'No se ha registrado ninguna descripción' :  caracteristicas ) +'</p>'+
                                                                 '</div>'+
@@ -236,7 +236,7 @@
                                                                         '</ul>'+
                                                                     '</div>'+
                                                                     // '<div class="cart-btn" style="text-align: center;" >'+
-                                                                    //     '<a href="#" class="add-to-curt" title="Agregar al carrito de compras">Comprar</a>'+
+                                                                    //     '<a href="#" class="add-to-curt" title="Agregar al carrito de compras">Comprarrr</a>'+
                                                                     // '</div>'+
                                                                     '<div class="add-to-link">'+
                                                                         '<ul>'+
@@ -270,16 +270,14 @@
                                     '</div>' +
                                 '</div>';
 
-                strHTML += '<div class="mb-30px col-md-3 col-sm-6  p-10">' +
+                strHTML += '<div class="mb-30px col-md-4 col-sm-6  p-10">' +
                                         '<div class="slider-single-item">' + 
                                             '<article class="list-product p-10 text-center"  >' + 
                                                 '<div class="product-inner" style="box-shadow: 0px 0px 4.65px 0.35px rgb(0 0 0 / 20%);" >' +
                                                     '<div class="img-block">' +
-                                                        // '<a href="#" class="thumbnail">' +
-                                                        '<div>' +
-                                                            '<img class="first-img" src=" '+ urlimagenProducto+' " alt="" />' +
-                                                        // '</a>' + 
-                                                        '</div>' +
+                                                         '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'"  class="thumbnail">' +
+                                                            '<img class="first-img" style="margin:13px" src=" '+ urlimagenProducto+' " alt="" />' +
+                                                         '</a>' + 
                                                         '<div class="add-to-link">' +
                                                             '<ul>' +
                                                                 '<li>' +
@@ -302,8 +300,8 @@
                                                         '</div>' +
                                                     '</div>' +
                                                     '<div class="product-decs">' +
-                                                        '<span class="inner-link" ><span style="font-size: 20px;" >'+ this.Marca +'</span></span>' +
-                                                        '<h2><a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" style="font-weight: bold; color: #5d5d5d;" class="product-link">'+ this.NomProducto +'</a></h2>' +
+                                                        '<a class="inner-link" href="shop-4-column.html"><span style="font-size: 20px;" >'+ this.Marca +'</span></a>' +
+                                                        '<h2><a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="product-link">'+ this.NomProducto +'</a></h2>' +
                                                         '<div class="pricing-meta">' +
                                                             '<ul>' +
                                                                 // '<li class="old-price">$23.90</li>' +
@@ -312,7 +310,7 @@
                                                             '</ul>' +
                                                         '</div>' +
                                                     '</div>' +
-                                                    '<div class="cart-btn">'  +
+                                                    '<div class="cart-btn" style="background:#266cfb">'  +
                                                         '<button '+
                                                             ' data-codproducto="'+ codigoProducto +'" '+
                                                             ' data-nombre="'+ nombreproducto +'" '+
@@ -322,7 +320,7 @@
                                                             ' data-urlimg="'+ urlimagenProducto +'" '+
                                                             ' data-marca="'+ marca +'" '+
                                                             ' onclick="accesodirectoagregacarrito($(this));" '+
-                                                            ' class="add-to-curt" style="font-size: 13px;color: white; border: 1px solid gray; /* background: #266cfb; */ border: none; box-shadow: none; padding: 0 20px; line-height: 36px; border-radius: 5px; text-transform: uppercase; cursor: pointer; display: inline-block;" title="Agregar al carrito">Comprar</button>' +
+                                                            ' class="add-to-curt" style="font-size: 13px;color: white; border: 1px solid gray; /* background: #266cfb; */ border: none; box-shadow: none; padding: 0 20px; line-height: 25px; border-radius: 5px; text-transform: uppercase; cursor: pointer; display: inline-block;" title="Agregar al carrito">Comprar</button>' +
                                                     '</div>' +
                                                 '</div>' +
                                             '</article>' +
