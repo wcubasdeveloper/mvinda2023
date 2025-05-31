@@ -191,6 +191,8 @@ class Web extends CI_Controller {
     $codigoproducto =  $_GET["codigoProducto"];
     $datos["termbusqueda"] = "";
     $datos["codproducto"] = $codigoproducto;
+    
+    
 
     $data_producto = $this->getProductosById($codigoproducto);
     $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
@@ -248,6 +250,10 @@ class Web extends CI_Controller {
       $dataproducto["urlfbshared"] = base_url().'Web/DetalleProducto/?codigoProducto='.$codigoproducto;
       $dataproducto["descfacebook"] = 'S/. '.number_format($precio_venta_soles, 2,'.',''). ' ($'.number_format($precio_venta_dolares, 2, '.', '').') '.$caracteristicas_fb;
       $dataproducto["imgfbshared"] = $urlimgfacebook;
+      $dataproducto["CodCategoriaProducto"] =  $dataArray[0]["CodCategoriaProducto"];
+      $dataproducto["NomCategoriaProducto"] =  $dataArray[0]["NomCategoriaProducto"];
+       
+       
     }
     //var_dump(count($dataArray));
 

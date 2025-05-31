@@ -33,8 +33,9 @@
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=3058970330780590&autoLogAppEvents=1" nonce="RV39vIoK"></script>
 
+ <br>
        <!-- Shop details Area start -->
-         <section class="product-details-area mtb-60px ">
+         <section class="product-details-area" style="10px 0">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-12">
@@ -52,7 +53,7 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12">
-                            <div class="product-details-content">
+                            <div class="product-details-content" style="padding:8px !important">
                                 <h2 id="lblnombreProducto"><?=$NomProducto?></h2>
                                 <div class="pro-details-rating-wrap">
                                     <div class="rating-product">
@@ -69,8 +70,12 @@
                                         <li class="cuttent-price" id="lblprecioproducto" ><?=$PrecioProducto?></li>
                                     </ul>
                                 </div>
-                                <div class="pro-details-list">
-                                    <p id="lblcaracteristicas"><?=$Caracteristicas?></p>
+                                <div class="pro-details-list" >
+                                    <p id="lblcaracteristicas" hidden ><?=$Caracteristicas?></p>
+                                    
+                                    <p> <a id="linksharedWhatsapp" 
+                                                href="#" 
+                                                class="whatsapp" target="_blank" style="display: initial;background-color: #25d366;color: white;padding-left: 10px;font-size: 21px;padding-right: 10px;padding-top: 3px;padding-bottom: 3px;border-radius: 5px;" > <i class="fa fa-whatsapp whatsapp-icon"></i></a></p>
                                 </div>
                                 <div class="pro-details-quality mt-0px">
                                     <div class="cart-plus-minus">
@@ -84,7 +89,7 @@
                                     </div>
                                 </div>
                             
-                                <div class="pro-details-social-info">
+                                <div class="pro-details-social-info" hidden >
                                     <!-- <span style="padding-top: 4px;">Compartir</span> -->
                                     <div class="social-info">
                                         <ul style="display: flex;" >
@@ -104,7 +109,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="pro-details-policy">
+                                <div class="pro-details-policy" hidden >
                                     <ul>
                                         <li><img src="<?=base_url()?>/assets/abelostyle/assets/images/icons/policy.png" alt="" /><span>Seguridad en la entrega</span></li>
                                         <li><img src="<?=base_url()?>/assets/abelostyle/assets/images/icons/policy-2.png" alt="" /><span>Servicio de delivery</span></li>
@@ -116,6 +121,70 @@
                     </div>
                 </div>
             </section>
+
+
+
+<div class="container border p-4">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" id="miTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="desc-tab" data-toggle="tab" href="#descripcion" role="tab">Detalles del producto</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="detalle-tab" data-toggle="tab" href="#detalles" role="tab">Marca</a>
+    </li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content mt-4" id="miTabContent">
+    <!-- Tab 1 -->
+    <div class="tab-pane fade show active" id="descripcion" role="tabpanel">
+      <h5 class="font-weight-bold">CARACTERÍSTICAS</h5>
+      <div class="row">
+        <div class="col-sm-12" style="color:black !important">
+        <br>
+        <?php
+echo str_replace("\t", "<br>", $Caracteristicas);
+?></div>
+        
+     
+      </div>
+
+      <div class="mt-4 text-muted small">
+        <p>* Imagen referencial</p>
+        <p>* Garantía 12 Meses</p>
+        <p>* Precios incluyen IGV</p>
+    
+      </div>
+    </div>
+
+    <!-- Tab 2 -->
+    <div class="tab-pane fade" id="detalles" role="tabpanel">
+      <p><?=$Marca?></p>
+    </div>
+  </div>
+
+</div>
+<br>
+  <div class="container" >
+       	<div class="col-xl-12 col-lg-12 col-md-12" >
+     		
+	        <div id="sectioncatdinamicas">
+	                    
+	        </div>
+
+  	</div>
+  </div>
+  
+
+
+
+
+<br>
+<br>
+<br>
+
 
             <script src="http://sonnyt.com/prettySocial/jquery.prettySocial.min.js"></script>
 
@@ -143,6 +212,7 @@
 
 
     $(document).ready(function () {
+  
         // getproductosBusqueda();
         // $('#txtbusquedaproducto').val(terminoBusqueda);
         //mostrarProductosEnOferta();;;;;
@@ -161,6 +231,7 @@
         $(".se-pre-con").fadeOut("slow");
         
         socialwhatsappshared();
+        getCategoriasView();
     });
     
     function socialwhatsappshared(){
@@ -168,7 +239,7 @@
 
         $('#linksharedWhatsapp').attr('href',"https://web.whatsapp.com/send?text=" + URL_BASE +  urlproductodetalle);
 
-        $('.prettySocial').prettySocial();
+     //   $('.prettySocial').prettySocial();
     }
 
     function compartirProducto(e){
@@ -353,4 +424,175 @@
     //limpiarDataLocalStorage();
     //  var dataaa = JSON.parse(getLocalDataCarrito()); //  JSON.parse(getLocalDataCarrito());
     //  console.log("--->", dataaa);
+    
+    
+    function getCategoriasView(){
+        var vCodCategoria = '<?=$CodCategoriaProducto?>';
+        var vNombreCategoria = '<?=$NomCategoriaProducto?>';
+        $('#sectioncatdinamicas').html();
+      
+        var URL_GET_PRODUCTOS = "<?php echo base_url()."XbestServicio/getProductosByCategoria" ?>";
+        var strCategoriasDinamicas  = "";
+       
+        //
+        //console.log("vCodCategoria",vCodCategoria);
+        $.post(URL_GET_PRODUCTOS,
+        {
+            codcategoria: vCodCategoria 
+        }, function (data) {
+            //
+           // console.log("categorias view",respuesta);
+     
+                   
+                    strCategoriasDinamicas += '<div class="arrival-area mt-20px mt-lg-50px">' +
+                                                '<div class="container">' +
+                                                    '<div class="row">' +
+                                                        '<div class="col-md-12">' +
+                                                            '<div class="section-title">' +
+                                                                '<h2>OTROS PRODUCTOS EN LA MISMA CATEGORIA '+ vNombreCategoria +'</h2>' +
+                                                                '<ul class="nav nav-tabs sub-category">' +
+                                                                    '<li class="nav-item">' +
+                                                                        '<a class="nav-link active" data-toggle="tab" href="##tab-1"></a>' +
+                                                                    '</li>' +
+                                                                '</ul>' +
+                                                            '</div>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                    '<div class="tab-content">' +
+                                                        '<div id="tab-1" class="tab-pane active fade">' +
+                                                            '<div  class="arrival-slider-wrapper-produc slider-nav-style-1">';
+                    var strHTMLproductos = '';      
+                    console.log("data", data);                     
+                    $.each(data, function(){
+                  
+                    	var urlimagenuno= this["UrlImagen"];
+                        var codigoProducto = this.CodProducto;
+                        var urlimagenuno = this.NomProductoUM; 
+                        var nombreproductoUno = this.NomProducto; 
+                        var precioventauno = this.PrecioVenta;
+                        var codmonedauno = this.CodMoneda;
+                        var precio_venta_soles = (codmonedauno == 1 ? precioventauno : (precioventauno * COSTO_DOLAR_HOY) );
+                        var precio_venta_dolares = (codmonedauno == 2 ? precioventauno : (precioventauno/COSTO_DOLAR_HOY) );
+                        var caracteristicas = this.Caracteristicas;
+                       // console.log("urlimagenunooo-->",this["UrlImagen"].toString(),length);
+                        var urlimagen = (  this["UrlImagen"] ? this["UrlImagen"] : '<?=base_url()?>assets/abelostyle/assets/images/product-image/8.jpg' );
+                        var marcauno = (this.Marca ? this.Marca : '-') ;
+
+
+console.log("urlimagen --",urlimagen ? urlimagen : "nulll");
+                        strHTMLproductos += '<div class="slider-single-item">' +
+                                '<article class="list-product text-center">' +
+                                    '<div class="product-inner">' +
+                                        '<div class="img-block" style="border-top: 7px solid red;border-bottom: 7px solid black;" >' +
+                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" target="_blank" class="thumbnail">' +
+                                                 ( this["UrlImagen"]?  '<img class="first-img" src="'+ this["UrlImagen"]+'" alt="" />' : '<img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/4.jpg" alt="" />'  ) +
+                                            '</a>' +
+                                            '<div class="add-to-link">' +
+                                                '<ul>' +
+                                                    '<li>' +
+                                                        '<span '+
+                                                            ' data-codproducto="'+ codigoProducto +'" '+
+                                                            ' data-nombre="'+ nombreproductoUno +'" '+
+                                                            ' data-psoles="'+ precio_venta_soles +'" '+
+                                                            ' data-pdolares="'+ precio_venta_dolares +'" '+
+                                                            ' data-caracteristicas="'+ caracteristicas +'" '+
+                                                            ' data-urlimg="'+ urlimagen +'" '+
+                                                            ' data-marca="'+ marcauno +'" '+
+                                                            ' data-nuevo="NO" ' +
+                                                        '  onclick="verDetalleProducto($(this));" class="quick_view" data-link-action="quickview" title="Ver detalle del producto" >' +
+                                                            '<i class="lnr lnr-magnifier"></i>' +
+                                                        '</span>' +
+                                                    '</li>' +
+                                                    '<li>' +
+                                                        '<span '+
+                                                            ' data-codproducto="'+ codigoProducto +'" '+
+                                                            ' data-nombre="'+ nombreproductoUno +'" '+
+                                                            ' data-psoles="'+ precio_venta_soles +'" '+
+                                                            ' data-pdolares="'+ precio_venta_dolares +'" '+
+                                                            ' data-caracteristicas="'+ caracteristicas +'" '+
+                                                            ' data-urlimg="'+ urlimagen +'" '+
+                                                            ' data-marca="'+ marcauno +'" '+
+                                                        '  onclick="accesodirectoagregacarrito($(this));" title="agregar al carrito"><i class="lnr lnr-cart"></i></span>' +
+                                                    '</li>' +
+                                                '</ul>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        // '<ul class="product-flag">' +
+                                        //     '<li class="new">Nuevo</li>' +
+                                        // '</ul>' +
+                                        '<div class="product-decs">' +
+                                            '<span style="font-size: 18px;white-space: nowrap;"  >'+ marcauno +'</span>' +
+                                            '<h2><span class="product-link" style="white-space: nowrap;" >'+ nombreproductoUno +'</span></h2>' +
+                                            '<div class="pricing-meta">' +
+                                                '<ul>' +
+                                                    '<li class="current-price">' + 'S./ ' + precio_venta_soles.toFixed(2) +' ($ ' + precio_venta_dolares.toFixed(2) + ')</li>' +
+                                                '</ul>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        '<div class="cart-btn">' +
+                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" target="_blank" class="add-to-curt" title="Ver producto ">Ver Producto</a>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</article>' +
+                            '</div>';
+
+                    });
+
+                    strCategoriasDinamicas += strHTMLproductos;
+                    strCategoriasDinamicas +=           '</div>' +
+                                                    '</div>' +
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>';
+          
+                //
+                $('#sectioncatdinamicas').html(strCategoriasDinamicas);
+                //
+                $('.arrival-slider-wrapper-produc').slick({
+                    infinite: true,
+                    autoplay: true,
+                    slidesToShow: 5,
+                    arrows: true,
+                    loop: true,
+                    slidesToScroll: 1,
+                    prevArrow: '<span class="prev"><i class="ion-ios-arrow-left"></i></span>',
+                    nextArrow: '<span class="next"><i class="ion-ios-arrow-right"></i></span>',
+                    speed: 800,
+                    cssEase: 'linear',
+                    dots: false,
+                    responsive: [{
+                            breakpoint: 1200,
+                            Settings: {
+                                slidesToShow: 4,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 992,
+                            Settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 767,
+                            Settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 479,
+                            Settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+                // $(".se-pre-con").fadeOut("slow");
+
+        },"JSON");
+    }
+    
 </script>
